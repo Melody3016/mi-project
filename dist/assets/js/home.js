@@ -1,0 +1,1 @@
+"use strict";$(function(){new Swiper(".swiper-container",{speed:800,loop:!0,autoplay:{delay:5e3},pagination:{el:".swiper-pagination",clickable:!0},effect:"fade",fadeEffect:{crossFade:!0},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}});getCookie("username")&&($(".userInfo").hide(),$(".loginInfo").show().find(".un").text(getCookie("username")))});

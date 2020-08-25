@@ -1,0 +1,1 @@
+"use strict";$(function(){$.ajax({type:"get",url:"../../interface/userList.php",data:{},dataType:"json",beforeSend:function(){NProgress.configure(),NProgress.start()},success:function(e){var t=template("userInfo",{data:e});$("tbody").html(t)},complete:function(){NProgress.done()}})});

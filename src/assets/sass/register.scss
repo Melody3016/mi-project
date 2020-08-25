@@ -1,0 +1,93 @@
+body {
+    background: #f9f9f9;
+    color: #666;
+}
+
+
+
+.register-box {
+    background: #fff;
+    width: 850px;
+    height: 500px;
+    margin: 50px auto;
+    padding-top: 50px;
+
+    .register-hd {
+        padding: 27px 0 24px;
+        text-align: center;
+        font-size: 24px;
+        color: #666;
+
+        h4 {
+            font-size: 30px;
+            font-weight: normal;
+            color: #333;
+            line-height: 1.5;
+        }
+    }
+
+    .register-bd {
+        margin: 0 250px;
+
+        .username,
+        .password {
+            box-sizing: border-box;
+            color: #4a4a4a;
+            width: 100%;
+            height: 48px;
+            line-height: 22px;
+            padding: 13px 16px 13px 14px;
+            display: block;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .sub {
+            background-color: #ff6700;
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            display: block;
+            margin-bottom: 14px;
+            text-align: center;
+            font-size: 14px;
+            color: #fff;
+            cursor: pointer;
+            appearance: none;
+            border: 0 none;
+            margin-bottom: 25px;
+        }
+
+        .err_tip {
+            display: none;
+            color: #f56600;
+            margin-bottom: 10px;
+            line-height: 20px;
+            .error-con{
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .register-ft {
+        margin-bottom: 30px;
+
+        .sms_link {
+            margin-bottom: 30px;
+            text-align: center;
+
+            a {
+                color: #ff6700;
+            }
+        }
+
+        .msg {
+            text-align: center;
+
+            .inspect_link {
+                color: #333;
+                font-weight: bold;
+            }
+        }
+    }
+}

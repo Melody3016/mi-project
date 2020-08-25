@@ -1,0 +1,84 @@
+/*CSS reset 样式重置*/
+body,
+ol,
+ul,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+th,
+td,
+dl,
+dd,
+form,
+fieldset,
+legend,
+input,
+textarea,
+select,
+figure,
+figcaption {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
+strong {
+    font-weight: normal;
+    font-size: 100%;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+}
+
+input {
+    outline: none;
+}
+
+/*清除浮动*/
+.clearfix {
+    /*兼容低版本IE*/
+    *zoom: 1;
+
+    &::before {
+        content: "";
+        display: table;
+    }
+
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/* 版心 */
+.container {
+    width: 1226px;
+    margin: 0 auto;
+}

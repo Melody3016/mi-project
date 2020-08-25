@@ -1,0 +1,103 @@
+.top-bar {
+    a {
+        display: block;
+        width: 200px;
+        height: 98px;
+        background: url(../images/mistore_logo.png) no-repeat;
+    }
+}
+
+
+.main {
+    height: 588px;
+    background: url(../images/login-bg.jpg) no-repeat center;
+
+    .container {
+        position: relative;
+
+        .login-box {
+            position: absolute;
+            right: 0;
+            top: 90px;
+            background: #fff;
+            width: 410px;
+
+            .login-hd {
+                padding: 27px 0 24px;
+                text-align: center;
+                font-size: 24px;
+                color: #666;
+
+                a {
+                    color: #f56600;
+                }
+            }
+
+            .login-bd {
+                margin: 0 30px;
+
+                .username,
+                .password {
+                    box-sizing: border-box;
+                    color: #4a4a4a;
+                    width: 100%;
+                    height: 48px;
+                    line-height: 22px;
+                    padding: 13px 16px 13px 14px;
+                    display: block;
+                    margin-bottom: 20px;
+                    border: 1px solid #ccc;
+                }
+
+                .sub {
+                    background-color: #ff6700;
+                    width: 100%;
+                    height: 50px;
+                    line-height: 50px;
+                    display: block;
+                    margin-bottom: 14px;
+                    text-align: center;
+                    font-size: 14px;
+                    color: #fff;
+                    cursor: pointer;
+                    appearance: none;
+                    border: 0 none;
+                    margin-bottom: 25px;
+                }
+
+
+                .err_tip {
+                    display: none;
+                    color: #f56600;
+                    margin-bottom: 10px;
+                    line-height: 20px;
+                    .error-con{
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            .login-ft {
+                margin-bottom: 30px;
+
+                .sms_link {
+                    margin-bottom: 30px;
+                    text-align: center;
+
+                    a {
+                        color: #ff6700;
+                    }
+                }
+
+                .n_links_area {
+                    text-align: center;
+
+                    .outer-link {
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+
+}
