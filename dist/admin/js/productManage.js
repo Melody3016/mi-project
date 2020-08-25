@@ -1,0 +1,1 @@
+"use strict";$(function(){$.ajax({type:"get",url:"../../interface/productList.php",beforeSend:function(){NProgress.configure(),NProgress.start()},data:{},dataType:"json",success:function(t){var e=template("list",{data:t});$("tbody").html(e)},complete:function(){NProgress.done()}})});
