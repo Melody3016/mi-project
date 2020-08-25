@@ -30,4 +30,27 @@ $(function () {
         $('.userInfo').hide();
         $('.loginInfo').show().find('.un').text(getCookie('username'));
     }
+
+    // 全局钩子，用于进度条的显示和小时
+    $(window).ajaxSend(function (){
+        /*开启这个进度条.*/
+        NProgress.configure();
+        NProgress.start();
+    })
+
+    $(window).ajaxComplete(function(){
+        NProgress.done();
+    })
+
+    // 分类列表的渲染
+    $.ajax({
+        type: "get",
+        url: "../../interface/categoryList.php",
+        data: {},
+        dataType: "json",
+        success: function (response) {
+            var htmlStr = template('firstList',{'data':response});
+            $('#category-list').html(htmlStr);
+        }
+    });
 })
