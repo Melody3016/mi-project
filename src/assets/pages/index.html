@@ -25,7 +25,7 @@
             <div class="container">
                 <!--导航条-->
                 <div class="topbar-nav">
-                    <a href="#">小米商城</a>
+                    <a href="./index.html">小米商城</a>
                     <span class="sep">|</span>
                     <a href="#">MIUI</a>
                     <span class="sep">|</span>
@@ -72,8 +72,19 @@
                 </div>
                 <!--登录信息-->
                 <div class="loginInfo">
-                    <a href="./cart.html" class="un"></a>
-                    <i class="fa fa-chevron-down"></i>
+                    <span class="user">
+                        <a href="javascript:;" class="username">
+                            <span class="un"></span>
+                            <i class="fa fa-chevron-down"></i>
+                        </a>
+                        <!--下拉菜单-->
+                        <div id="J_userMenu" class="userMenu">
+                            <ul class="user-menu">
+                                <li><a href="./cart.html" target="_blank">我的购物车</a></li>
+                                <li><a id="J_userLogout" href="javascript:;">退出登录</a></li>
+                            </ul>
+                        </div>
+                    </span>
                     <span class="sep">|</span>
                     <a href="#">消息通知</a>
                 </div>
@@ -85,7 +96,7 @@
                 <!--logo-->
                 <div class="header-logo">
                     <h1>
-                        <a href="#" class="logo">
+                        <a href="./index.html" class="logo">
                             小米官网
                         </a>
                     </h1>
@@ -1270,7 +1281,7 @@
                     <div class="box-bd clearfix">
                         <ul class="second-list clearfix">
                             <!--TODO-->
-                            
+
                         </ul>
                     </div>
                 </div>

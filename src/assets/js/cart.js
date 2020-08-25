@@ -6,7 +6,7 @@ $(function () {
         return;
     }
 
-    $('#name').text(getCookie('username'));
+    $('.un').text(getCookie('username'));
 
     // 获取用户id，根据id渲染购物车列表
     var id = getCookie('userId');
@@ -17,6 +17,32 @@ $(function () {
 
     // 修改数量功能
     update(id);
+
+    // 顶部登录用户下拉菜单
+    $('.user').hover(function () {
+        // 改变username的样式
+        $('.username')
+            .css('color', '#ff6700')
+            .css('background', '#fff')
+        // 更改usermenu的高度
+        $('.userMenu').css('height', 85)
+    }, function () {
+        // 改变username的样式
+        $('.username')
+            .css('color', '#424242')
+            .css('background', 'none')
+        // 更改usermenu的高度
+        $('.userMenu').css('height', 0)
+    })
+
+    // 退出登录
+    $('#J_userLogout').click(function () {
+        // 清除cookie
+        removeCookie('username');
+        removeCookie('userId');
+
+        location.href = '../pages/index.html';
+    })
 
 })
 
