@@ -1,0 +1,1 @@
+"use strict";$(window).ajaxSend(function(){NProgress.configure(),NProgress.start()}),$(window).ajaxComplete(function(){NProgress.done()}),getCookie("username")&&($(".userInfo").hide(),$(".loginInfo").show().find(".un").text(getCookie("username")));

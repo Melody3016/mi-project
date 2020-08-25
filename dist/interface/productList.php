@@ -12,15 +12,19 @@ function showList()
         return;
     }
 
-    // 判断客户端是否传入id
+    $query = mysqli_query($conn, "SELECT * FROM `product`,`category` WHERE `product`.`category_id` = `category`.`c_id`");
 
-    if (isset($_GET['id'])) {
-        $id = $_GET['id'];
-        $query = mysqli_query($conn, "SELECT * FROM `product`,`category` WHERE `product`.`category_id` = `category`.`c_id` AND `category`.`c_id` = '$id'");
-    } else {
-        $query = mysqli_query($conn, "SELECT * FROM `product`,`category` WHERE `product`.`category_id` = `category`.`c_id`");
+    // 判断客户端是否传入c_id
+    if (isset($_GET['c_id'])) {
+        $c_id = $_GET['c_id'];
+        $query = mysqli_query($conn, "SELECT * FROM `product`,`category` WHERE `product`.`category_id` = `category`.`c_id` AND `category`.`c_id` = '$c_id'");
     }
 
+    // 判断客户端是否传入pro_id
+    if (isset($_GET['pro_id'])) {
+        $pro_id = $_GET['pro_id'];
+        $query = mysqli_query($conn, "SELECT * FROM `product`,`category` WHERE `product`.`category_id` = `category`.`c_id` AND `product`.`pro_id` = '$pro_id'");
+    }
 
     if (!$query) {
         $arr = array('code' => 0, 'msg' => '查询失败，请重试');

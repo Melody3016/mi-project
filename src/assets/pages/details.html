@@ -7,8 +7,10 @@
     <title>
         小米商城 - 小米10 Pro、Redmi 10X、小米MIX Alpha，小米电视官方网站
     </title>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../../../node_modules/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../node_modules/nprogress/nprogress.css">
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/details.css">
 
@@ -22,7 +24,7 @@
             <div class="container">
                 <!--导航条-->
                 <div class="topbar-nav">
-                    <a href="#">小米商城</a>
+                    <a href="./index.html">小米商城</a>
                     <span class="sep">|</span>
                     <a href="#">MIUI</a>
                     <span class="sep">|</span>
@@ -61,9 +63,16 @@
                 </div>
                 <!--登录注册-->
                 <div class="userInfo">
-                    <a href="#">登录</a>
+                    <a href="./login.html">登录</a>
                     <span class="sep">|</span>
-                    <a href="#">注册</a>
+                    <a href="./register.html">注册</a>
+                    <span class="sep">|</span>
+                    <a href="#">消息通知</a>
+                </div>
+                <!--登录信息-->
+                <div class="loginInfo">
+                    <a href="./cart.html" class="un"></a>
+                    <i class="fa fa-chevron-down"></i>
                     <span class="sep">|</span>
                     <a href="#">消息通知</a>
                 </div>
@@ -75,7 +84,7 @@
                 <!--logo-->
                 <div class="header-logo">
                     <h1>
-                        <a href="#" class="logo">
+                        <a href="./index.html" class="logo">
                             小米官网
                         </a>
                     </h1>
@@ -108,42 +117,9 @@
 
     <!--main-->
     <div id="main">
-        <div class="container clearfix">
-            <!--轮播图-->
-            <div class="img-left">
-                <img src="../images/phone-01.webp" alt="">
-            </div>
-            <!--商品信息-->
-            <div class="product">
-                <h2>小米10至尊纪念版</h2>
-                <p class="sale-desc">120X 超远变焦 / 120W 秒充科技 / 120Hz刷新率 + 240Hz采样率 / 骁龙865旗舰处理器 / 双模5G / 10倍光学变焦 /
-                    OIS光学防抖+EIS数字防抖 / 2000万超清前置相机 / 双串蝶式石墨烯基锂离子电池 / 等效4500mAh大电量 / 120W 有线秒充+50W无线秒充+10W无线反充 / WiFi 6 /
-                    多功能NFC / 红外遥控</p>
-                <p class="company-info">小米自营</p>
-                <div class="price-info"><span>5599 元</span></div>
-
-                <!--选择数量-->
-                <div class="number">
-                    <h4>选择购买数量</h4>
-                    <div class="change-goods-num clearfix">
-                        <button class="sub">-</button>
-                        <span class="nums">1</span>
-                        <button class="add">+</button>
-                    </div>
-                </div>
-
-                <!--加入购物车-->
-                <div class="selected-list">
-                    <ul>
-                        <li>小米10至尊纪念版<span>5599元</span></li>
-                    </ul>
-                    <div class="total-price">总计：5599元</div>
-                </div>
-
-                <div class="add-btn">
-                    <a href="javascript:void(0);">加入购物车</a>
-                </div>
-            </div>
+        <div class="container clearfix productInfo">
+            <!--TODO-->
+            
         </div>
     </div>
 
@@ -401,7 +377,48 @@
         </div>
     </div>
 
+    <!--商品详细信息的渲染-->
+    <script type="text/template" id="productInfo">
+        <!--轮播图-->
+        <div class="img-left">
+            <img src="<%=data.image%>" alt="">
+        </div>
+        <!--商品信息-->
+        <div class="product">
+            <h2><%=data.name%></h2>
+            <p class="sale-desc"><%=data.detailsInfo%></p>
+            <p class="company-info">小米自营</p>
+            <div class="price-info"><span><%=data.price%> 元</span></div>
+
+            <!--选择数量-->
+            <div class="number">
+                <h4>选择购买数量</h4>
+                <div class="change-goods-num clearfix">
+                    <button class="sub">-</button>
+                    <span class="nums">1</span>
+                    <button class="add">+</button>
+                </div>
+            </div>
+
+            <!--加入购物车-->
+            <div class="selected-list">
+                <ul>
+                    <li><%=data.name%><span id="c-price" data-price="<%=data.price%>"><%=data.price%>元</span></li>
+                </ul>
+                <div class="total-price">总计：<%=data.price%>元</div>
+            </div>
+
+            <div class="add-btn">
+                <a href="javascript:void(0);">加入购物车</a>
+            </div>
+        </div>
+    </script>
+
     <script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../../node_modules/art-template/lib/template-web.js"></script>
+    <script src="../../../node_modules/nprogress/nprogress.js"></script>
+    <script src="../../lib/cookie.js"></script>
+    <script src="../js/common.js"></script>
     <script src="../js/details.js"></script>
 </body>
 

@@ -1541,7 +1541,7 @@
     <!--商品的渲染-->
     <script type="text/template" id="productList">
         <%for(var i=0;i<data.length;i++) {%>
-            <li class="second-list-item">
+            <li class="second-list-item" data-id="<%=data[i].pro_id%>">
                 <a href="javascript:;">
                     <div class="figure-img">
                         <img alt="<%=data[i].name%>" src="<%=data[i].image%>">
@@ -1564,6 +1564,7 @@
     <script src="../../../node_modules/art-template/lib/template-web.js"></script>
     <script src="../../../node_modules/nprogress/nprogress.js"></script>
     <script src="../../lib/cookie.js"></script>
+    <script src="../js/common.js"></script>
     <script src="../js/home.js"></script>
 </body>
 
