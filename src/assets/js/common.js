@@ -94,13 +94,16 @@ $('.shopCart').hover(function () {
 
 function getCount(data) {
     var res = {};
+    // 总数量
     var num = 0;
+    // 总价格
     var price = 0;
     // 遍历data
     $.each(data, function (index, item) {
+        // 数量
         var n = Number(item.nums);
         num += n;
-        price += num * Number(item.price);
+        price += n * Number(item.price);
     })
     res.num = num;
     res.price = price
