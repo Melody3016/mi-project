@@ -70,6 +70,8 @@ $(function () {
         window.open('../pages/details.html?id=' + id);
     })
 
+
+
 })
 
 // 根据传入的id，渲染商品
@@ -178,6 +180,10 @@ function showList() {
                         secondRes
                     });
                     $('.c10').html(c10Str);
+
+                    // 动态设置ul的宽度
+                    setWidth();
+
                 },
                 complete: function () {
                     NProgress.done();
@@ -185,5 +191,14 @@ function showList() {
             });
         }
     });
+
+}
+
+function setWidth() {
+    $('.children-list').each(function () {
+        var total = $(this).children().length;
+        var num = parseInt(total / 7) + 1;
+        $(this).css('width', num * 250);
+    })
 
 }

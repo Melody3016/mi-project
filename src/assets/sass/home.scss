@@ -108,19 +108,23 @@
                 left: 234px;
                 top: 0;
                 width: 992px;
+                overflow: hidden;
                 z-index: 24;
                 height: 458px;
-                border: 1px solid #e0e0e0;
                 border-left: 0;
-                background: #fff;
-                box-shadow: 0 8px 16px rgba(0, 0, 0, .18);
 
                 .children-list {
-                    padding: 2px 0;
+                    border: 1px solid #e0e0e0;
+                    background: #fff;
+                    height: 460px;
+                    max-width: 992px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    align-content: flex-start;
+                    box-shadow: 0 8px 16px rgba(0, 0, 0, .18);
 
                     li {
-                        position: relative;
-                        float: left;
                         width: 248px;
                         height: 76px;
 
