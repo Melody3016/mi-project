@@ -159,3 +159,19 @@ function change(id, num, cb) {
         }
     });
 }
+
+
+function getCount(data) {
+    var res = {};
+    var num = 0;
+    var price = 0;
+    // 遍历data
+    $.each(data, function (index, item) {
+        var n = Number(item.nums);
+        num += n;
+        price += num * Number(item.price);
+    })
+    res.num = num;
+    res.price = price
+    return res;
+}

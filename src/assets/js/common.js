@@ -1,4 +1,4 @@
-// 全局钩子，用于进度条的显示和小时
+// 全局钩子，用于进度条的显示和消失
 $(window).ajaxSend(function () {
     /*开启这个进度条.*/
     NProgress.configure();
@@ -6,6 +6,7 @@ $(window).ajaxSend(function () {
 })
 
 $(window).ajaxComplete(function () {
+    // 关闭进度条
     NProgress.done();
 })
 
@@ -40,3 +41,77 @@ $('#J_userLogout').click(function () {
 
     location.href = '../pages/index.html';
 })
+
+// 页面加载渲染购物车菜单
+function cartRender() {
+    // 获取用户id
+    var uId = getCookie('userId');
+    if (!uId) {
+        $('.msg').removeClass('hide');
+        return;
+    }
+    $.ajax({
+        type: "get",
+        url: "../../interface/cartList.php",
+        data: {
+            uId
+        },
+        dataType: "json",
+        success: function (response) {
+            if (response.length == 0) {
+                $('.msg').removeClass('hide');
+                return;
+            }
+
+            // 更改购物车菜单样式
+            $('.cart').addClass('full-cart');
+            // 计算商品数量
+            var total = getCount(response);
+            var htmlStr = '(' + total.num + ')';
+            $('.cartNum').html(htmlStr)
+            // 渲染数据
+            var html = template('cartList', {
+                'data': response
+            });
+            $('#J_miniCartList').html(html).removeClass('hide');
+            $('#J_miniCartListTotal').removeClass('hide');
+
+            // 渲染数量和价格
+            $('.total').find('em').html(total.num);
+            $('.price').find('em').html(total.price);
+        }
+    });
+}
+cartRender();
+
+// 购物车下拉菜单的实现
+$('.shopCart').hover(function () {
+    // 样式的改变
+    $('.cart').addClass('enter-cart');
+    // 高度的改变
+    $('#J_cartMenu')
+        .css('height', 'auto');
+}, function () {
+    // 样式还原
+    $('.cart').removeClass('enter-cart');
+    $('#J_cartMenu').css('height', '0');
+
+})
+
+
+
+
+function getCount(data) {
+    var res = {};
+    var num = 0;
+    var price = 0;
+    // 遍历data
+    $.each(data, function (index, item) {
+        var n = Number(item.nums);
+        num += n;
+        price += num * Number(item.price);
+    })
+    res.num = num;
+    res.price = price
+    return res;
+}

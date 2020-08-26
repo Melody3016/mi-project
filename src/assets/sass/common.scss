@@ -41,6 +41,21 @@
                 height: 40px;
                 color: #b0b0b0;
                 background: #424242;
+
+                i {
+                    font-size: 14px;
+                    margin-right: 5px;
+                }
+            }
+
+            .enter-cart {
+                color: #ff6700 !important;
+                background: #fff !important;
+            }
+
+            .full-cart {
+                color: #fff;
+                background: #ff6700;
             }
 
             .cartMenu {
@@ -55,6 +70,106 @@
                 box-shadow: 0 2px 10px rgba(0, 0, 0, .15);
                 overflow: hidden;
                 transition: height .3s;
+
+                .menu-content {
+                    padding: 20px 0 0;
+
+                    .cart-list {
+                        li {
+
+                            &:first-child {
+                                .cart-item {
+                                    border-top: 0 !important;
+                                }
+                            }
+
+                            position: relative;
+                            height: 80px;
+                            padding: 0 20px;
+
+                            .cart-item {
+                                position: relative;
+                                height: 60px;
+                                padding: 10px 0;
+                                border-top: 1px solid #e0e0e0;
+                                line-height: 20px;
+
+                                .thumb {
+                                    float: left;
+                                    margin-right: 10px;
+                                    color: #b0b0b0;
+                                    line-height: 40px;
+
+                                    img {
+                                        width: 60px;
+                                        height: 60px;
+                                    }
+                                }
+
+                                .name {
+                                    float: left;
+                                    width: 95px;
+                                    height: 40px;
+                                    line-height: 20px;
+                                    margin: 10px 0;
+                                    color: #424242;
+                                    overflow: hidden;
+                                }
+
+                                .price {
+                                    float: right;
+                                    margin: 20px 20px 0 5px;
+                                }
+                            }
+
+
+
+                        }
+                    }
+
+                    .hide {
+                        display: none !important;
+                    }
+
+                    .msg {
+                        padding: 20px 0 20px;
+                        margin: 0 20px 20px;
+                        text-align: center;
+                    }
+
+                    .cart-total {
+                        padding: 15px 20px;
+                        background: #fafafa;
+
+                        .total {
+                            float: left;
+                            width: 135px;
+                            color: #757575;
+
+                            em {
+                                font-style: normal;
+                                color: #ff6700;
+                            }
+                        }
+
+
+                        .btn-cart {
+                            float: right;
+                            width: 130px;
+                            padding: 0;
+                            font-size: 14px;
+                            line-height: 40px;
+                            text-align: center;
+                            color: #f5f5f5;
+                            background: #ff6700;
+                            border-color: #ff6700;
+                            -webkit-transition: all .4s;
+                            transition: all .4s;
+                            cursor: pointer;
+                        }
+
+                    }
+                }
             }
         }
 
@@ -74,7 +189,7 @@
                 width: 110px;
                 text-align: center;
 
-                .username{
+                .username {
                     width: 110px;
                 }
 
@@ -104,8 +219,8 @@
                             line-height: 2;
                         }
 
-                        li{
-                            &:hover{
+                        li {
+                            &:hover {
                                 background: #f5f5f5;
 
                                 a {

@@ -55,11 +55,24 @@
                 <div class="shopCart">
                     <a href="#" class="cart">
                         <!--字体图标-->
+                        <i class="fa fa-shopping-cart"></i>
                         购物车
                         <span class="cartNum">(0)</span>
                     </a>
                     <div id="J_cartMenu" class="cartMenu">
+                        <div class="menu-content">
+                            <!--购物车列表-->
+                            <ul id="J_miniCartList" class="cart-list hide">
+                                <!--TODO-->
 
+                            </ul>
+                            <!--购物车为空-->
+                            <div class="msg msg-empty hide">购物车中还没有商品，赶紧选购吧！</div>
+
+                            <div id="J_miniCartListTotal" class="cart-total clearfix hide">
+                                <span class="total">共 <em>4</em> 件商品<span class="price"> <em>14996</em> 元</span></span>
+                                <a href="./cart.html" class="btn btn-primary btn-cart">去购物车结算</a></div>
+                        </div>
                     </div>
                 </div>
                 <!--登录注册-->
@@ -1541,6 +1554,21 @@
             <div class="slogan ir">探索黑科技，小米为发烧而生</div>
         </div>
     </div>
+
+    <!--购物车的渲染-->
+    <script type="text/template" id="cartList">
+        <%for(var i=0;i<data.length;i++) {%>
+            <li>
+                <div class="cart-item clearfix first">
+                    <a class="thumb" href="./cart.html">
+                        <img alt="" src="<%=data[i].image%>">
+                    </a>
+                    <a class="name" href="./cart.html"><%=data[i].pro_name%></a>
+                    <span class="price"><%=data[i].price%>元 × <%=data[i].nums%></span>
+                </div>
+            </li>
+        <%}%>
+    </script>
 
     <!--分类列表的渲染-->
     <script type="text/template" id="firstList">
