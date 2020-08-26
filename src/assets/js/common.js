@@ -1,14 +1,3 @@
-// 全局钩子，用于进度条的显示和消失
-$(window).ajaxSend(function () {
-    /*开启这个进度条.*/
-    NProgress.configure();
-    NProgress.start();
-})
-
-$(window).ajaxComplete(function () {
-    // 关闭进度条
-    NProgress.done();
-})
 
 // 判断用户是否登录
 if (getCookie('username')) {

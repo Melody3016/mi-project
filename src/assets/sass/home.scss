@@ -107,6 +107,7 @@
                 position: absolute;
                 left: 234px;
                 top: 0;
+                width: 992px;
                 z-index: 24;
                 height: 458px;
                 border: 1px solid #e0e0e0;
@@ -115,15 +116,12 @@
                 box-shadow: 0 8px 16px rgba(0, 0, 0, .18);
 
                 .children-list {
-                    float: left;
-                    width: 248px;
-                    height: 458px;
                     padding: 2px 0;
 
                     li {
                         position: relative;
                         float: left;
-                        width: 265px;
+                        width: 248px;
                         height: 76px;
 
                         >a {
@@ -136,25 +134,23 @@
                             &:hover {
                                 color: #ff6700;
                             }
+
+                            .text {
+                                display: inline-block;
+                                width: 160px;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                vertical-align: middle;
+                            }
+
+                            img {
+                                width: 40px;
+                                height: 40px;
+                            }
                         }
                     }
                 }
-            }
-
-            .children-4 {
-                width: 992px;
-            }
-
-            .children-3 {
-                width: 774px;
-            }
-
-            .children-2 {
-                width: 496px;
-            }
-
-            .children-1 {
-                width: 248px;
             }
         }
 
@@ -458,14 +454,13 @@
         }
 
         .box-bd {
-            
+
+            .show {
+                display: block !important;
+            }
 
             .second-list {
-
-                .no-data {
-                    font-size: 24px;
-                    font-weight: bold;
-                }
+                display: none;
 
                 .second-list-item {
                     float: left;
@@ -533,4 +528,19 @@
 
         }
     }
+
+}
+
+
+.no-data {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.no-data-2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 458px;
+    color: #000;
 }

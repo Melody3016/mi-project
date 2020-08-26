@@ -40,6 +40,10 @@ $(function () {
                 image,
                 uId
             },
+            beforeSend: function () {
+                NProgress.configure();
+                NProgress.start();
+            },
             dataType: "json",
             success: function (response) {
                 if (response.code == 1) {
@@ -47,6 +51,9 @@ $(function () {
                     location.href = '../pages/cart.html'
                 }
 
+            },
+            complete: function () {
+                NProgress.done();
             }
         });
     });
@@ -96,6 +103,8 @@ function render(id) {
         },
         beforeSend: function () {
             $('.productInfo').html('<div class="warning">数据加载中，请稍等···</div>');
+            NProgress.configure();
+            NProgress.start();
         },
         dataType: "json",
         success: function (response) {
@@ -103,6 +112,9 @@ function render(id) {
                 'data': response[0]
             });
             $('.productInfo').html(htmlStr);
+        },
+        complete: function () {
+            NProgress.done();
         }
     });
 }
