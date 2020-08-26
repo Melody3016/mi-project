@@ -52,7 +52,7 @@
             <div class="cart-wrap">
                 <div class="cart-goods-list">
                     <div class="list-head clearfix">
-                        <div class="col col-check"><i class="iconfont icon-checkbox">√</i>全选</div>
+                        <div class="col col-check"><input type="checkbox" class="icon-checkbox" id="allCheck">全选</div>
                         <div class="col col-img">&nbsp;</div>
                         <div class="col col-name">商品名称</div>
                         <div class="col col-price">单价</div>
@@ -69,9 +69,9 @@
                 <div class="cart-bar clearfix">
                     <div class="section-left">
                         <a href="./index.html" class="back-shopping">继续购物</a>
-                        <span class="cart-total">共 <i id="tol-num">3</i> 件商品，已选择 <i>0</i>件</span>
+                        <!-- <span class="cart-total">共 <i id="tol-num">3</i> 件商品，已选择 <i>0</i>件</span> -->
                     </div>
-                    <span class="total-price">合计：<em>0</em>元<a href="javascript:void(0);">去结算</a></span>
+                    <span class="total-price">合计：<em id="t-price">0</em>元<a href="javascript:void(0);">去结算</a></span>
                 </div>
             </div>
         </div>
@@ -338,7 +338,7 @@
                     <div class="item-row clearfix">
 
                         <div class="col col-check">
-                            <i class="iconfont icon-checkbox icon-checkbox">√</i>
+                            <input type="checkbox" class="icon-checkbox i-checkbox" >
                         </div>
 
                         <div class="col col-img">
@@ -362,8 +362,8 @@
                                 <button class="add">+</button>
                             </div>
                         </div>
-
-                        <div class="col col-total"><%=data[i].price%>元</div>
+                        <% var money = data[i].price * data[i].nums %>
+                        <div class="col col-total" data-total="<%=money%>"><%=money%>元</div>
 
                         <div class="col col-action">
                             <a href="javascript:void(0);" data-id="<%=data[i].cart_id%>" title="删除" class="del">

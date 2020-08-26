@@ -65,6 +65,8 @@ function cartRender() {
 
             // 更改购物车菜单样式
             $('.cart').addClass('full-cart');
+            $('.cart i').removeClass('fa-shopping-cart').addClass('fa-cart-plus')
+
             // 计算商品数量
             var total = getCount(response);
             var htmlStr = '(' + total.num + ')';

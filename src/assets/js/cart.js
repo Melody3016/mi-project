@@ -44,6 +44,46 @@ $(function () {
         location.href = '../pages/index.html';
     })
 
+    // 复选框事件
+    $('.list-body').on('change', '.i-checkbox', function () {
+        var price = Number($(this).parent().siblings('.col-total').attr('data-total'));
+        var tPrice = Number($('#t-price').html());
+        if ($(this).is(":checked") == true) {
+            //选中触发事件
+            tPrice += price;
+            $('#t-price').html(tPrice);
+        } else {
+            $('#allCheck').removeProp('checked');
+            //取消选中触发事件
+            tPrice -= price;
+            $('#t-price').html(tPrice);
+        }
+    })
+
+    // 全选框事件
+    $('#allCheck').click(function () {
+        var checked = $(this).is(':checked');
+        var tPrice = 0;
+        $('.i-checkbox').each(function () {
+            var price = Number($(this).parent().siblings('.col-total').attr('data-total'));
+            tPrice += price;
+            if (checked) {
+                $(this).prop('checked', 'true');
+                // 改变总价
+                $('#t-price').html(tPrice);
+            } else {
+                $(this).removeProp('checked');
+                // 改变总价
+                $('#t-price').html(0);
+            }
+        })
+    })
+
+    // 结算事件
+    $('.total-price').find('a').click(function(){
+        alert('敬请期待！');
+    })
+
 })
 
 // 渲染购物车
@@ -158,20 +198,4 @@ function change(id, num, cb) {
             }
         }
     });
-}
-
-
-function getCount(data) {
-    var res = {};
-    var num = 0;
-    var price = 0;
-    // 遍历data
-    $.each(data, function (index, item) {
-        var n = Number(item.nums);
-        num += n;
-        price += num * Number(item.price);
-    })
-    res.num = num;
-    res.price = price
-    return res;
 }
