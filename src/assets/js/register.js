@@ -53,19 +53,19 @@ function check(un, pw) {
         $('.err_tip').css('display', 'none');
     }
 
-    if (!pw) {
+    if (un.length < 6 || un.length > 18) {
         // 提示信息
         $('.err_tip').css('display', 'block');
-        $('.error-con').text('请输入密码');
+        $('.error-con').text('用户名长度需为6-18位');
         return false;
     } else {
         $('.err_tip').css('display', 'none');
     }
 
-    if (un.length < 6 || un.length > 18) {
+    if (!pw) {
         // 提示信息
         $('.err_tip').css('display', 'block');
-        $('.error-con').text('用户名长度需为6-18位');
+        $('.error-con').text('请输入密码');
         return false;
     } else {
         $('.err_tip').css('display', 'none');

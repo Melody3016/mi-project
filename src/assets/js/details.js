@@ -6,30 +6,49 @@ $(function () {
         $('.productInfo').html('<div class="warning">请不要直接访问该页面！</div>');
         return;
     }
+
+    // 判断用户是否登录
+    if (!getCookie('username')) {
+        $('.add-btn').find('a').attr('href', '../pages/login.html')
+        $('.add-btn').find('a').html('请先登录');
+    }
+
+
     var id = url.split('=')[1];
 
-    // 根据id发送ajax请求
-    $.ajax({
-        type: "get",
-        url: "../../interface/productList.php",
-        data: {
-            'pro_id': id
-        },
-        dataType: "json",
-        success: function (response) {
-            var htmlStr = template('productInfo', {
-                'data': response[0]
-            });
-            $('.productInfo').html(htmlStr);
-            // 判断用户是否登录
-            if (!getCookie('username')) {
-                $('.add-btn').find('a').attr('href', '../pages/login.html')
-                $('.add-btn').find('a').html('请先登录');
-            } else {
-                // 添加购物车功能
-                addCart(id);
+    // 渲染页面功能
+    render(id);
+
+    // 添加购物车功能
+    $('.productInfo').on('click', '.add-btn', function () {
+        // 获取页面的数据
+        var proId = id;
+        var proName = $('.product').find('h2').html();
+        var nums = $('.nums').html();
+        var price = $('#c-price').attr('data-price');
+        var image = $('.img-left').find('img').attr('src');
+        var uId = getCookie('userId');
+
+        $.ajax({
+            type: "post",
+            url: "../../interface/cartAdd.php",
+            data: {
+                proId,
+                proName,
+                nums,
+                price,
+                image,
+                uId
+            },
+            dataType: "json",
+            success: function (response) {
+                if (response.code == 1) {
+                    // 跳转购物车
+                    location.href = '../pages/cart.html'
+                }
+
             }
-        }
+        });
     });
 
     // 修改数量
@@ -67,45 +86,23 @@ function calcPrice(num) {
     $('.total-price').html(str)
 }
 
-function addCart(id) {
-    $('.add-btn').find('a').click(function () {
-        // 获取页面的数据
-        /*  
-        $proId = $_POST['proId'];
-        $proName = $_POST['proName'];
-        $nums = $_POST['nums'];
-        $price = $_POST['price'];
-        $image = $_POST['image'];
-        $uID = $_POST['uId'];
-        */
-        var proId = id;
-        var proName = $('.product').find('h2').html();
-        var nums = $('.nums').html();
-        var price = $('#c-price').attr('data-price');
-        var image = $('.img-left').find('img').attr('src');
-        var uId = getCookie('userId');
-
-        $.ajax({
-            type: "post",
-            url: "../../interface/cartAdd.php",
-            data: {
-                proId,
-                proName,
-                nums,
-                price,
-                image,
-                uId
-            },
-            dataType: "json",
-            success: function (response) {
-                if (response.code == 1) {
-                    // 跳转购物车
-                    location.href = '../pages/cart.html'
-                }
-              
-            }
-        });
+function render(id) {
+    // 根据id发送ajax请求
+    $.ajax({
+        type: "get",
+        url: "../../interface/productList.php",
+        data: {
+            'pro_id': id
+        },
+        beforeSend: function () {
+            $('.productInfo').html('<div class="warning">数据加载中，请稍等···</div>');
+        },
+        dataType: "json",
+        success: function (response) {
+            var htmlStr = template('productInfo', {
+                'data': response[0]
+            });
+            $('.productInfo').html(htmlStr);
+        }
     });
-
-
 }

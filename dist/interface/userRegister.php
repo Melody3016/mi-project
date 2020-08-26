@@ -10,14 +10,13 @@ function register()
         echo json_encode($arr);
         return;
     }
-    if (empty($_POST['password'])) {
-        $arr = array('code' => 0, 'msg' => '请填写密码');
+    if (!preg_match('/(\w){6,18}/', $_POST['username'])){
+        $arr = array('code' => 0, 'msg' => '用户名需为6-18位非特殊字符');
         echo json_encode($arr);
         return;
     }
-
-    if (!preg_match('/(\w){6,18}/', $_POST['username'])){
-        $arr = array('code' => 0, 'msg' => '用户名需为6-18位非特殊字符');
+    if (empty($_POST['password'])) {
+        $arr = array('code' => 0, 'msg' => '请填写密码');
         echo json_encode($arr);
         return;
     }
