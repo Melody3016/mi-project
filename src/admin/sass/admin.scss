@@ -3,6 +3,8 @@
     height: 100%;
     background: #222d32;
     position: absolute;
+    position: fixed;
+    top: 0;
 }
 
 .ad_aside .brand {
@@ -45,7 +47,7 @@
 .ad_aside .menu ul li a {
     display: block;
     height: 40px;
-    line-height: 40px;
+    line-height: 30px;
     color: #aaa;
     border: 3px solid transparent;
     padding-left: 30px;
@@ -76,6 +78,11 @@
 
 .ad_section {
     padding-left: 180px;
+    width: 100%;
+}
+
+.ad_section .container-fluid{
+    padding-top: 70px;
 }
 
 .ad_section.menu {
@@ -86,6 +93,9 @@
     height: 50px;
     background: rgba($color: #ff6700, $alpha: 0.8);
     margin-bottom: 20px;
+    position: fixed;
+    width: 100%;
+    padding-right: 180px;
 }
 
 .ad_section .ad_nav a {
@@ -111,7 +121,8 @@
 .ad_content .picTable {
     float: left;
     width: 45%;
-    height: 400px;
+    height: 400px;    
+    margin-top: 50px;
 }
 
 .ad_content .picTable:first-child {

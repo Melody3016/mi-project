@@ -26,12 +26,14 @@
                     <a href="javascript:void(0);">帐号登录</a>
                 </div>
                 <div class="login-bd">
-                    <input type="text" name="username" class="username" placeholder="请输入用户名" autocomplete="off">
-                    <input type="password" name="password" class="password" placeholder="请输入密码">
-                    <div class="err_tip">
-                        <i class="fa fa-exclamation-triangle"></i><span class="error-con">请输入帐号</span>
-                    </div>
-                    <input type="button" name="sub" class="sub" value="登录">
+                    <form onsubmit="return false">
+                        <input type="text" name="username" class="username" placeholder="请输入用户名" autocomplete="off">
+                        <input type="password" name="password" class="password" placeholder="请输入密码">
+                        <div class="err_tip">
+                            <i class="fa fa-exclamation-triangle"></i><span class="error-con">请输入帐号</span>
+                        </div>
+                        <input type="submit" name="sub" class="sub" value="登录">
+                    </form>
                 </div>
                 <div class="login-ft">
                     <div class="sms_link">
