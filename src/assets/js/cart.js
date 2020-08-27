@@ -80,7 +80,7 @@ $(function () {
     })
 
     // 结算事件
-    $('.total-price').find('a').click(function(){
+    $('.total-price').find('a').click(function () {
         alert('敬请期待！');
     })
 
@@ -111,6 +111,10 @@ function render(id) {
         },
         complete: function () {
             NProgress.done();
+            // 改变总价
+            $('#t-price').html(0);
+            // 改变全选框选中状态
+            $('#allCheck').removeProp('checked');
         }
     })
 }
