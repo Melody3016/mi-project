@@ -9,6 +9,7 @@ $(function () {
             // 登录失败，提示信息
             $('.err_tip').css('display', 'block');
             $('.error-con').text(data.msg);
+            NProgress.done();
         } else {
             // 跳转到登录之前的页面
             //alert('登录成功');
