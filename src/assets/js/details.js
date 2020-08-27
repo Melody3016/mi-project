@@ -76,6 +76,7 @@ $(function () {
 
 })
 
+// 计算价格
 function calcPrice(num) {
     // 获取当前价格
     var price = $('#c-price').attr('data-price');
@@ -86,6 +87,7 @@ function calcPrice(num) {
     $('.total-price').html(str)
 }
 
+// 渲染页面
 function render(id) {
     // 根据id发送ajax请求
     $.ajax({

@@ -25,6 +25,7 @@ $(function () {
         },
     })
 
+    // 渲染列表
     showList();
 
 
@@ -61,32 +62,6 @@ $(function () {
     // 秒杀功能
     setInterval(flashSale,1000);
 })
-
-// 根据传入的id，渲染商品
-function showProList(id) {
-    if (!id) id = 1;
-    $.ajax({
-        type: "get",
-        url: "../../interface/productList.php",
-        data: {
-            'c_id': id
-        },
-        beforeSend: function () {
-            $('.second-list').html('<div class="no-data">数据加载中···</div>');
-        },
-        dataType: "json",
-        success: function (response) {
-            if (response.length === 0) {
-                $('.second-list').html('<div class="no-data">该分类下暂无数据</div>');
-                return;
-            }
-            var htmlStr = template('productList', {
-                'data': response
-            });
-            $('.second-list').html(htmlStr);
-        }
-    });
-}
 
 function showList() {
     // 请求分类列表信息
@@ -145,6 +120,7 @@ function showList() {
 
 }
 
+// 动态设置列表宽度
 function setWidth() {
     $('.children-list').each(function () {
         var total = $(this).children().length;

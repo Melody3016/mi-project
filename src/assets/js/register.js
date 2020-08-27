@@ -10,7 +10,7 @@ $(function () {
         // 发送ajax请求
         $.ajax({
             type: "post",
-            url: '../interface/userRegister.php',
+            url: '../../interface/userRegister.php',
             data: {
                 username,
                 password
