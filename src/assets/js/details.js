@@ -7,13 +7,6 @@ $(function () {
         return;
     }
 
-    // 判断用户是否登录
-    if (!getCookie('username')) {
-        $('.add-btn').find('a').attr('href', '../pages/login.html')
-        $('.add-btn').find('a').html('请先登录');
-    }
-
-
     var id = url.split('=')[1];
 
     // 渲染页面功能
@@ -112,6 +105,12 @@ function render(id) {
                 'data': response[0]
             });
             $('.productInfo').html(htmlStr);
+
+            // 判断用户是否登录
+            if (!getCookie('username')) {
+                $('.add-btn').find('a').attr('href', '../pages/login.html')
+                $('.add-btn').find('a').html('请先登录');
+            }
         },
         complete: function () {
             NProgress.done();

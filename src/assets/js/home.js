@@ -25,29 +25,8 @@ $(function () {
         },
     })
 
-    // 分类列表的渲染
-    /* $.ajax({
-        type: "get",
-        url: "../../interface/categoryList.php",
-        data: {},
-        dataType: "json",
-        success: function (response) {
-            var htmlStr = template('firstList', {
-                'data': response
-            });
-            $('#category-list').html(htmlStr);
-        }
-    }); */
-
     showList();
 
-    // 给分类列表添加点击事件
-    /* $('#category-list').on('click', '.firstList', function () {
-        // 添加now样式，并清除所有其他兄弟的now样式
-        $(this).addClass('now').siblings().removeClass('now');
-        var id = $(this).attr('data-id');
-        showProList(id);
-    }) */
 
     // 给分类列表添加鼠标进入事件
     $('#category-list').on('mouseenter', '.firstList', function () {
@@ -58,20 +37,29 @@ $(function () {
     })
 
     // 给商品添加点击事件，进入商品详情页
-    /* $('.second-list').on('click', '.second-list-item', function () {
-        // 将id作为参数输入到url中，跳转
-        var id = $(this).attr('data-id');
-        location.href = '../pages/details.html?id=' + id;
-    }) */
-
     $('#list').on('click', '.second-list-item', function () {
         // 将id作为参数输入到url中，跳转
         var id = $(this).attr('data-id');
         window.open('../pages/details.html?id=' + id);
     })
 
+    // 给轮播图上的分类列表添加鼠标移入事件
+    $('.slist-item').mouseenter(function () {
+        // 给当前li添加active类别
+        $(this).addClass('active').siblings().removeClass('active');
+        // 给当前li对应的children-list添加active类别
+        $('.sl-right').children().eq($(this).index()).addClass('active').siblings().removeClass('active');
+    })
+
+    // 给轮播图上的分类列表添加鼠标移出事件
+    $('.shoplist').mouseleave(function () {
+        $('.sl-right').children().removeClass('active');
+        $('.slist-item').removeClass('active');
+    })
 
 
+    // 秒杀功能
+    setInterval(flashSale,1000);
 })
 
 // 根据传入的id，渲染商品
@@ -127,7 +115,6 @@ function showList() {
                     NProgress.configure();
                     NProgress.start();
                     $('#list').html('<div class="no-data">数据加载中···</div>');
-                    $('.children-list').html('<div class="no-data-2">数据加载中···</div>');
                 },
                 dataType: "json",
                 success: function (secondRes) {
@@ -140,46 +127,10 @@ function showList() {
                     $('#list').append(htmlStr);
 
                     // 渲染 slist-item 信息
-                    var c1Str = template('c1List', {
+                    var pStr = template('pro_List', {
                         secondRes
                     });
-                    $('.c1').html(c1Str);
-                    var c2Str = template('c2List', {
-                        secondRes
-                    });
-                    $('.c2').html(c2Str);
-                    var c3Str = template('c3List', {
-                        secondRes
-                    });
-                    $('.c3').html(c3Str);
-                    var c4Str = template('c4List', {
-                        secondRes
-                    });
-                    $('.c4').html(c4Str);
-                    var c5Str = template('c5List', {
-                        secondRes
-                    });
-                    $('.c5').html(c5Str);
-                    var c6Str = template('c6List', {
-                        secondRes
-                    });
-                    $('.c6').html(c6Str);
-                    var c7Str = template('c7List', {
-                        secondRes
-                    });
-                    $('.c7').html(c7Str);
-                    var c8Str = template('c8List', {
-                        secondRes
-                    });
-                    $('.c8').html(c8Str);
-                    var c9Str = template('c9List', {
-                        secondRes
-                    });
-                    $('.c9').html(c9Str);
-                    var c10Str = template('c10List', {
-                        secondRes
-                    });
-                    $('.c10').html(c10Str);
+                    $('.sl-right').html(pStr);
 
                     // 动态设置ul的宽度
                     setWidth();
@@ -200,5 +151,26 @@ function setWidth() {
         var num = parseInt(total / 7) + 1;
         $(this).css('width', num * 250);
     })
+
+}
+
+// 秒杀功能
+function flashSale() {
+    var date = new Date();
+    var hour = date.getHours();
+
+    var minute = 59 - date.getMinutes();
+    var second = 59 - date.getSeconds();
+
+    // 添0
+    hour = hour < 10 ? "0" + hour : hour;
+    minute = minute < 10 ? "0" + minute : minute;
+    second = second < 10 ? "0" + second : second;
+    
+    var hourStr = hour + ":00 场";
+
+    $('.round').html(hourStr);
+    $('.minutes').html(minute);
+    $('.seconds').html(second);
 
 }
