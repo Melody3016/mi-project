@@ -2,6 +2,7 @@
 // 载入配置文件
 require_once './config.php';
 
+
 function showList()
 {
     // 1. 连接

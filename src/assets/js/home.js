@@ -69,7 +69,7 @@ function showList() {
         type: "get",
         url: "../../interface/categoryList.php",
         data: {},
-        beforeSend: function () {
+        beforeSend: function (xhr) {
             NProgress.configure();
             NProgress.start();
         },
