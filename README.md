@@ -13,6 +13,7 @@
     npm i
     ```
 2. 执行项目根目录的 `mi.sql` 数据库文件
-3. 在支持php的服务器环境访问项目网站
-4. 前台首页：/dist/assets/pages/index.html
-5. 后台首页：/dist/admin/pages/index.html
+3. 修改 /dist/interface/config.php 中的连接数据库的用户名和密码
+4. 在支持php的服务器环境访问项目网站
+5. 前台首页：/dist/assets/pages/index.html
+6. 后台首页：/dist/admin/pages/index.html
