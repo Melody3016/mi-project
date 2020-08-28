@@ -1,6 +1,6 @@
 # mi-project
 ## 项目简介
-**在线demo地址** http://demo.xuanlvzeng.xyz/mi-project/dist/assets/pages/index.html 
+**在线demo地址** <a href="http://demo.xuanlvzeng.xyz/mi-project/dist/assets/pages/index.html" target="_blank>http://demo.xuanlvzeng.xyz/mi-project/dist/assets/pages/index.html</a>
 
 **简单模仿小米商城**
 1. 首页渲染分类信息、商品信息和购物车信息
